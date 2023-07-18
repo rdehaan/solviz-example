@@ -33,13 +33,13 @@ See LICENSE.md.
           <div class="center">
 
             <pre id="input">
-#const n = 4.
+#const n=4.
 
 % n-Queens encoding
-{ q(I,1..n) } == 1 :- I = 1..n.
-{ q(1..n,J) } == 1 :- J = 1..n.
-:- { q(D-J,J) } >= 2, D =   2..2*n.
-:- { q(D+J,J) } >= 2, D = 1-n..n-1.</pre>
+1 { q(I,1..n) } 1 :- I = 1..n.
+1 { q(1..n,J) } 1 :- J = 1..n.
+:- 2 { q(D-J,J) }, D =   2..2*n.
+:- 2 { q(D+J,J) }, D = 1-n..n-1.</pre>
 
             <ul class="hlist">
               <li>
