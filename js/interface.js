@@ -37,7 +37,14 @@ function interface_decide(lit) {
   addToLog("Interface: decide " + atom + " (literal: " + lit + ")");
 }
 function interface_check(model) {
-  addToLog("Interface: check; model: " + model);
+  atoms = Array();
+  for (let index = 0; index < model.length; ++index) {
+    atom = get_atom_from_lit(model[index]);
+    if (atom != null) {
+      atoms.push(atom);
+    }
+  }
+  addToLog("Interface: check; model: " + atoms);
   updateOutput();
   model_found = true;
   if (need_to_update_graphics() && document.getElementById("pause-on-model").checked) {
