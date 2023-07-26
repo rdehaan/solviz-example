@@ -44,7 +44,7 @@ function interface_check(model) {
       atoms.push(atom);
     }
   }
-  addToLog("Interface: check; model: " + atoms);
+  addToLog("Interface: model: " + atoms);
   updateOutput();
   model_found = true;
   if (need_to_update_graphics() && document.getElementById("pause-on-model").checked) {
@@ -52,7 +52,6 @@ function interface_check(model) {
   }
 }
 function interface_on_model() {
-  addToLog("Interface: on_model");
 }
 function watched_predicates() {
   return "*";
