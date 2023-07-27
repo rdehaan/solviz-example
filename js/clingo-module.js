@@ -21,6 +21,15 @@ input.setOptions({
   autoScrollEditorIntoView: true
 });
 
+input.getSession().on('change', function() {
+  localStorage.setItem("solviz-example-input", input.getValue());
+});
+
+var stored_input = localStorage.getItem("solviz-example-input");
+if (stored_input) {
+  input.setValue(stored_input);
+}
+
 function load_example() {
   load_example_from_path(ex.value);
 }
