@@ -28,7 +28,7 @@ input.getSession().on('change', function() {
 var stored_input = localStorage.getItem("solviz-example-input");
 if (stored_input) {
   input.setValue(stored_input);
-  inputElement.execCommand("gotolineend");
+  input.execCommand("gotolineend");
 }
 
 function load_example() {
