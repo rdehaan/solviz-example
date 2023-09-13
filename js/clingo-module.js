@@ -30,6 +30,9 @@ if (stored_input) {
   input.setValue(stored_input);
   input.execCommand("gotolineend");
 }
+else {
+  load_example_from_path("examples/nqueens.lp");
+}
 
 function load_example() {
   load_example_from_path(ex.value);

@@ -29,22 +29,53 @@ See LICENSE.md.
         </header>
 
         <div class="post-content">
-          <div class="center">
+          <div>
 
-            <pre id="input">
-#const n=4.
+            <p>
+              This demonstration visualizes how the ASP solver <a href="https://potassco.org/clingo/">clingo</a> carries out its search on logic programs.
+            </p>
 
-% n-Queens encoding
-1 { q(I,1..n) } 1 :- I = 1..n.
-1 { q(1..n,J) } 1 :- J = 1..n.
-:- 2 { q(D-J,J) }, D = 2..2*n.
-:- 2 { q(D+J,J) }, D = 1-n..n-1.</pre>
+            <p>
+              Select an example logic program, or enter your own.<br />
+              Select the demonstration speed, and click "Run!" to start.
+            </p>
+
+            <p>
+              When the demonstration runs, various events are shown,
+              such as branching decisions, propagation of literals,
+              and reversal of previously set literals in the backtracking and backjumping process.
+            </p>
+
+            <p>&nbsp;</p>
+
+            <p>
+              <b>Logic program:</b>
+            </p>
 
             <ul class="hlist">
               <li>
-                <b>Configuration:</b>
+                Load from example:
               </li>
-              <li>reasoning mode
+              <li>
+                <select id="examples" onchange="load_example()">
+                  <optgroup label="Simple Examples">
+                    <option value="examples/nqueens.lp">n-Queens</option>
+                    <option value="examples/bla.lp">Bla</option>
+                  </optgroup>
+                </select>
+              </li>
+            </ul>
+
+            <pre id="input"></pre>
+
+            <div>&nbsp;</div>
+
+            <p>
+              <b>Solver configuration:</b>
+            </p>
+
+            <ul class="hlist">
+              <li>Reasoning mode:
                 <select id="mode">
                   <option selected>find one model</option>
                   <option>enumerate all</option>
@@ -56,6 +87,15 @@ See LICENSE.md.
                 </label>
               </li>
             </ul>
+
+          </div>
+          <div class="center">
+
+            <p>&nbsp;</p>
+
+            <p>
+              <b>Control:</b>
+            </p>
 
             <ul class="hlist">
               <li>
@@ -77,11 +117,22 @@ See LICENSE.md.
             <input type="button" id="pause" value="Pause" onclick="do_pause()" disabled/>&nbsp;
             <input type="button" id="resume" value="Resume" onclick="do_resume()" disabled/>
 
+          </div>
+          <div>
+
             <div>&nbsp;</div>
+
+            <div>
+              <b>Events:</b>
+            </div>
 
             <pre id="log" class="log"></pre>
 
             <div>&nbsp;</div>
+
+            <div>
+              <b>Solver output:</b>
+            </div>
 
             <pre id="output" class="code"></pre>
 

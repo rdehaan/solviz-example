@@ -149,6 +149,5 @@ function updateLog() {
   }
 }
 
-
 clearLog();
 addToLog("Ready...");
